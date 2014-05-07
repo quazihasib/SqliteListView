@@ -2,15 +2,25 @@ package com.example.sqlitelistview;
 
 import java.util.ArrayList;
 
+import SqliteDB.ContactListAdapter;
+import SqliteDB.ContactListItems;
+import SqliteDB.SqlHandler;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.app.Activity;
 import android.database.Cursor;
+import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -77,6 +87,20 @@ public class MainActivity extends Activity {
 		ContactListAdapter contactListAdapter = new ContactListAdapter(
 				MainActivity.this, contactList);
 		lvCustomList.setAdapter(contactListAdapter);
+		
+		lvCustomList.setOnItemClickListener(new OnItemClickListener()
+		{
+	        public void onItemClick(AdapterView<?> parent, View view,
+	                int position, long id) 
+	        {
+
+	        	Object o = lvCustomList.getItemAtPosition(position);
+	        	ContactListItems ci = (ContactListItems)o;
+	        	
+	        	Toast.makeText(getBaseContext(),"pos:"+position+" "+ci
+	        			,Toast.LENGTH_SHORT).show();
+	        }
+	    });
 
 	}
 

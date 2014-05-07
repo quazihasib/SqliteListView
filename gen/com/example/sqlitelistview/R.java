@@ -39,9 +39,8 @@ public final class R {
         public static final int tv_slno=0x7f080001;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int contact_list_row=0x7f030001;
-        public static final int main=0x7f030002;
+        public static final int contact_list_row=0x7f030000;
+        public static final int main=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f070000;
